@@ -2,6 +2,7 @@ import mongoose from 'mongoose'
 
 const serverSchema = new mongoose.Schema({
   sv_id: { type: String, required: true },
+  prefix: { type: String, required: true },
   users: [
     {
       id: { type: String, required: true },
