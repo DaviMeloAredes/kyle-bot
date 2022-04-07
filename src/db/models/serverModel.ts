@@ -14,6 +14,6 @@ const serverSchema = new mongoose.Schema({
   ]
 })
 
-const model = mongoose.model('server', serverSchema)
+const ServerModel = mongoose.model('server', serverSchema)
 
-export { model }
+export { ServerModel }
