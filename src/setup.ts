@@ -5,6 +5,10 @@ const client = new Client({ intents:
   [ Intents.FLAGS.GUILDS,
     Intents.FLAGS.GUILD_MESSAGES 
   ]
-})
+});
 
-client.login(process.env.ACCESS_TOKEN).then(console.log)
+(async () => {
+  (await import('./handlers/eventHandler')).default(client)
+})()
+
+client.login(process.env.ACCESS_TOKEN)
