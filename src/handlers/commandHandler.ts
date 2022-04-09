@@ -9,8 +9,10 @@ export default async (message: Message, prefix: string) => {
     const dir = `../../${command}`
     const commandProps: CommandInterface = (await import(dir)).default
 
-    if (message.content.toUpperCase().startsWith(`${prefix}${commandProps.name.toUpperCase()}`)) {
-      commandProps.exec(message)
+    if (typeof commandProps.isCommand !== 'undefined') {
+      if (message.content.toUpperCase().startsWith(`${prefix}${commandProps.name.toUpperCase()}`)) {
+        commandProps.exec(message)
+      }
     }
   })
 }
