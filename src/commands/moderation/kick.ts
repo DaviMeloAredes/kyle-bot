@@ -2,7 +2,6 @@ import { Message, MessageEmbed } from 'discord.js'
 
 export default {
   name: 'kick',
-  isCommand: true,
   exec: async (message: Message) => {
     const member = message.member!
 
