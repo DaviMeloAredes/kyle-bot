@@ -2,18 +2,15 @@ import { Message, MessageEmbed } from 'discord.js'
 
 export default {
   name: 'kick',
+  config: { useMentionedUser: true, permissionsToExecute: ['KICK_MEMBERS'] },
   exec: async (message: Message) => {
-    const member = message.member!
-
     if (!message.mentions.members!.first()) {
       return message.reply(':x: | Specify a member to kick.')
     }
 
     const mentionedMember = message.mentions.members!.first()
 
-    if (!member.permissions.has('KICK_MEMBERS')) {
-      return message.reply(':x: | Your permissions are not sufficient to this command.')
-    } else if (!mentionedMember!.kickable) {
+    if (!mentionedMember!.kickable) {
       return message.reply(":x: | I'm not allow to kick this member.")
     }
 
