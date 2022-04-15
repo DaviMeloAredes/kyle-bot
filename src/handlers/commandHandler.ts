@@ -14,9 +14,10 @@ export default async (message: Message, prefix: string) => {
         const memberHavePermissions = (await import('./utils/checkNeededPermissions')).default(message.member!, commandProps.config!.permissionsToExecute!, message)
 
         if (!memberHavePermissions) {
-          return message.reply('You don\'\t have the required permissions to execute this command.')
+          return message.reply('You don\'t have the required permissions to execute this command.')
         }
       }
+
       if (commandProps.config!.useMentionedUser && !message.mentions.members!.first()) {
         return message.reply(':x: | Specify a member.')
       } else {
