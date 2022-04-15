@@ -4,10 +4,6 @@ export default {
   name: 'kick',
   config: { useMentionedUser: true, permissionsToExecute: ['KICK_MEMBERS'] },
   exec: async (message: Message) => {
-    if (!message.mentions.members!.first()) {
-      return message.reply(':x: | Specify a member to kick.')
-    }
-
     const mentionedMember = message.mentions.members!.first()
 
     if (!mentionedMember!.kickable) {
